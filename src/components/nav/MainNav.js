@@ -1,6 +1,17 @@
 import { NavLink } from "react-router-dom";
+
 import style from "../css/home.module.css";
 const MainNav = () => {
+  const filePath = "ROLANDCAPINPIN.pdf";
+  // const handleDownload = () => {
+  //   const link = document.createElement("a");
+  //   link.href = "./";
+  //   link.download = "ROLANDCAPINPIN.pdf";
+  //   document.body.appendChild(link);
+  //   link.click();
+  //   document.body.removeChild(link);
+  // };
+
   return (
     <nav className={`${style.links} navbar navbar-expand-lg ml-auto`}>
       {/* <i className="fa-solid fa-r nav-brand"></i> */}
@@ -57,6 +68,13 @@ const MainNav = () => {
             >
               Contact
             </NavLink>
+          </li>
+          <li>
+            <a href={filePath} download>
+              <button className={`${style.dl} btn btn-outline-primary`}>
+                Resume
+              </button>
+            </a>
           </li>
         </ul>
       </div>
