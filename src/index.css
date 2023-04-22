@@ -1,13 +1,53 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-image: url("../src/components/content/Pages/img/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; */
+  background-color: #0a192f;
+  font-family: sans-serif;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+.nav-link {
+  color: #fff;
+}
+.nav-item {
+  font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+  margin-right: 50px;
+}
+/* .active-link {
+  color: red;
+  font-weight: bold;
+} */
+.fade-in {
+  opacity: 0;
+  transition: opacity 2s ease-out;
+}
+
+.visible {
+  opacity: 1;
+}
+li {
+  margin-bottom: 10px;
+}
+.card {
+  background-color: #012e40;
+}
+.card:hover {
+  transform: scale(1.1);
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon,
+.carousel-indicators {
+  display: none;
 }
