@@ -11,9 +11,9 @@ const Home = () => {
       </div>
       <div className={style.intro}>
         <h3 className={style.int}>
-          I build things for web
+          I build things for web and
           <br />
-          and mobile application using React
+          mobile application using React
         </h3>
       </div>
       <div className={style.aboutself}>
