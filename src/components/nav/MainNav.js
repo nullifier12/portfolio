@@ -1,84 +1,113 @@
 import { NavLink } from "react-router-dom";
-
+import { useState, useEffect } from "react";
 import style from "../css/home.module.css";
+
 const MainNav = () => {
-  const filePath = "ROLANDCAPINPIN.pdf";
-  // const handleDownload = () => {
-  //   const link = document.createElement("a");
-  //   link.href = "./";
-  //   link.download = "ROLANDCAPINPIN.pdf";
-  //   document.body.appendChild(link);
-  //   link.click();
-  //   document.body.removeChild(link);
-  // };
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
 
   return (
-    <nav className={`${style.links} navbar navbar-expand-lg ml-auto`}>
-      {/* <i className="fa-solid fa-r nav-brand"></i> */}
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className="collapse navbar-collapse" id="navbarNav">
-        <ul className="navbar-nav ms-auto">
-          <li className="nav-item">
-            <NavLink
-              className={({ isActive, isPending }) =>
-                isActive ? style.active : "nav-link"
-              }
-              to="/"
-            >
-              Home
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink
-              className={({ isActive, isPending }) =>
-                isActive ? style.active : "nav-link"
-              }
-              to="/skill"
-            >
-              Skill
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink
-              className={({ isActive, isPending }) =>
-                isActive ? style.active : "nav-link"
-              }
-              to="/projects"
-            >
-              Work
-            </NavLink>
-          </li>
+    <nav className={`${style.navbar} navbar navbar-expand-lg ${isScrolled ? style.navbarScrolled : ''}`}>
+      <div className={style.navContainer}>
+        <div className={style.navBrand}>
+          <span className={style.brandText}>RC</span>
+          <span className={style.brandSubtext}>Developer</span>
+        </div>
 
-          <li className="nav-item">
-            <NavLink
-              className={({ isActive, isPending }) =>
-                isActive ? style.active : "nav-link"
-              }
-              to="/contact"
-            >
-              Contact
-            </NavLink>
-          </li>
-          <li>
-            <a href={filePath} download>
-              <button className={`${style.dl} btn btn-outline-primary`}>
-                Resume
-              </button>
-            </a>
-          </li>
-        </ul>
+        <button
+          className={`${style.navbarToggler} navbar-toggler ${isMobileMenuOpen ? style.active : ''}`}
+          type="button"
+          onClick={toggleMobileMenu}
+          aria-label="Toggle navigation"
+        >
+          <span className={style.hamburgerLine}></span>
+          <span className={style.hamburgerLine}></span>
+          <span className={style.hamburgerLine}></span>
+        </button>
+
+        <div className={`${style.navbarCollapse} collapse navbar-collapse ${isMobileMenuOpen ? style.show : ''}`}>
+          <ul className={style.navbarNav}>
+            <li className={style.navItem}>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? `${style.navLink} ${style.active}` : style.navLink
+                }
+                to="/"
+                onClick={closeMobileMenu}
+              >
+                <span className={style.navIcon}>🏠</span>
+                <span className={style.navText}>Home</span>
+              </NavLink>
+            </li>
+            <li className={style.navItem}>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? `${style.navLink} ${style.active}` : style.navLink
+                }
+                to="/skill"
+                onClick={closeMobileMenu}
+              >
+                <span className={style.navIcon}>⚡</span>
+                <span className={style.navText}>Skills</span>
+              </NavLink>
+            </li>
+            <li className={style.navItem}>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? `${style.navLink} ${style.active}` : style.navLink
+                }
+                to="/projects"
+                onClick={closeMobileMenu}
+              >
+                <span className={style.navIcon}>💼</span>
+                <span className={style.navText}>Work</span>
+              </NavLink>
+            </li>
+            <li className={style.navItem}>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? `${style.navLink} ${style.active}` : style.navLink
+                }
+                to="/contact"
+                onClick={closeMobileMenu}
+              >
+                <span className={style.navIcon}>📧</span>
+                <span className={style.navText}>Contact</span>
+              </NavLink>
+            </li>
+            <li className={style.navItem}>
+              <a 
+                href="ROLANDCAPINPIN.pdf" 
+                download 
+                className={style.resumeButton}
+                onClick={closeMobileMenu}
+              >
+                <span className={style.resumeIcon}>📄</span>
+                <span className={style.resumeText}>Resume</span>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
   );
 };
+
 export default MainNav;
