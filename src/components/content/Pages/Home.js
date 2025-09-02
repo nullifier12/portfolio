@@ -23,9 +23,9 @@ const Home = () => {
             <div className={style.aboutself}>
               I'm a <span className={style.hightlight}>Passionate Full Stack Developer</span> with expertise in building
               <div>scalable web applications, cross-platform mobile solutions, and innovative digital products</div>
-              <div style={{ marginTop: "15px", fontSize: "18px", color: "#8892b0" }}>
+              {/* <div style={{ marginTop: "15px", fontSize: "18px", color: "#8892b0" }}>
                 Currently crafting digital solutions at <span className={style.hightlight}>Arcadier / BCAA Auto Marketplace</span>
-              </div>
+              </div> */}
             </div>
             <div className={style.heroButtons}>
               <a href="#about" className={style.primaryButton}>
