@@ -93,9 +93,9 @@ const MainNav = () => {
               </NavLink>
             </li>
             <li className={style.navItem}>
-              <a 
-                href="ROLANDCAPINPIN.pdf" 
-                download 
+              <a
+                href="Roland Capinpin.docx"
+                download
                 className={style.resumeButton}
                 onClick={closeMobileMenu}
               >
