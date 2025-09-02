@@ -53,8 +53,8 @@ const Home = () => {
                 creating solutions that make a difference in the digital world. My journey in software development
                 began in 2021, and I've been continuously evolving, learning, and pushing the boundaries of what's possible.
                 <div className={style.workExp}>
-                  Currently, I serve as a <span className={style.hightlight}>Junior Full Stack Developer & Lead Developer</span> at
-                  <span className={style.hightlight}> Arcadier / BCAA Auto Marketplace</span>, where I lead development
+                  I serve as a <span className={style.hightlight}>Full Stack Developer & Lead Developer</span>
+                  <span className={style.hightlight}> On high level companies</span>, where I lead development
                   initiatives and support multiple client marketplaces across different industries.
                 </div>
                 <div className={style.workExp}>
